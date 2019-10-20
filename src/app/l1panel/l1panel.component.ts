@@ -25,7 +25,8 @@ export class L1PanelComponent implements OnInit {
   ngOnInit() {
 
   }
-  addL1Panel (content1: string) {
+
+  addL1Panel () {
     const modalRef = this.modalService.open(L1PanelCreateComponent, { size: 'lg', backdrop: 'static', keyboard: false });
     modalRef.result.then((data: Array<L1Panel>) => {
       if (!this.coreHelperService.isArrayEmpty(data)) {
@@ -34,4 +35,3 @@ export class L1PanelComponent implements OnInit {
     });
   }
 }
-

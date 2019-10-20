@@ -1,0 +1,92 @@
+<div>
+    <div class="modal-header">
+        <h4 class="modal-title">{{drivetitle}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="parentform">
+            <div class="form-row">
+                <div class="form-group col-lg-6">
+                    <label for="name" class="control-label">Drive Name</label>
+                    <input type="text" class="form-control" aria-describedby="nameHelp" id="InputName" formControlName="driveName" placeholder="Enter drive name"
+                    />
+                </div>
+                <br />
+                <div class="form-group col-lg-6">
+                    <label for="name" class="control-label">Drive Date</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" formControlName="driveDate" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #d1="ngbDatepicker"
+                        />
+                        <div class="input-group-append">
+                            <div class="input-group-text" (click)="d1.toggle()">
+                                <i class="fa fa-calendar" style="cursor: pointer;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-lg-12">
+                    <label>Select Technology</label>
+                    <div>
+                        <label style="margin-left: 10px">
+                            <input type="radio" value=".Net Fullstack" formControlName="technology" /> .Net Fullstack
+                        </label>
+                    <!-- </div> -->
+                    <!-- <div> -->
+                        <label style="margin-left: 10px">
+                            <input type="radio" value="Java Fullstack" formControlName="technology" /> Java Fullstack
+                        </label>
+                    <!-- </div> -->
+                    <!-- <div> -->
+                        <label style="margin-left: 10px">
+                            <input type="radio" value="UI Developer" formControlName="technology" /> UI Developer
+                        </label>
+                    </div>
+                    <div>
+                        <label style="margin-left: 10px">
+                            <input type="radio" value="Automation Testing" formControlName="technology" /> Automation Testing
+                        </label>
+                    <!-- </div> -->
+                    <!-- <div> -->
+                        <label style="margin-left: 10px">
+                            <input type="radio" value="Manual Testing" formControlName="technology" /> Manual Testing
+                        </label>
+                    <!-- </div> -->
+                    <!-- <div> -->
+                        <label style="margin-left: 10px">
+                            <input type="radio" value="Others" formControlName="technology" /> Others
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-lg-4">
+                    <label for="panelname" class="control-label">Panel Name</label>
+                    <input type="text" class="form-control" aria-describedby="panelnameHelp" id="InputPanelName" formControlName="panelName"
+                        placeholder="Enter panel name" />
+                </div>
+                <div class="form-group col-lg-3">
+                    <label for="employeeid" class="control-label">Employee Id</label>
+                    <input type="text" class="form-control" disabled aria-describedby="employeeIdHelp" id="InputEmployeeId" formControlName="employeeId"
+                        placeholder="Enter panel name" />
+                </div>
+                <div class="form-group col-lg-5">
+                    <label for="paneltype" class="control-label">Panel Type</label>
+                    <select class="form-control" formControlName="panelId">
+                        <option value="" disabled>--Please select Panel--</option>
+                        <option>L1 Panel</option>
+                        <option>L2 Panel</option>
+                        <option>HR Panel</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success btn-raised" (click)="onPost()">Post</button>
+        <button type="button" class="btn btn-danger btn-raised" (click)="activeModal.dismiss()">Cancel</button>
+    </div>
+</div>

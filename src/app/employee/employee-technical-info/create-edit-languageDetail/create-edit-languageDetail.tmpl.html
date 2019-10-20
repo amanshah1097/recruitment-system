@@ -1,0 +1,43 @@
+<form [formGroup]="languageForm" class="form-horizontal" role="form" (ngSubmit)="addLanguageDetail()">
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add language</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="model-body">
+    <div class="container">
+        <div class="form-group">
+          <label for="language" class="control-label col-sm-3">language</label>
+          <div class="col-sm-8">
+            <select class="form-control" formControlName="selectedLanguage">
+                <option value=''  disabled>Please Select Language</option>
+                <option *ngFor="let language of refDataForTechnicalInfo.language" [ngValue]="language">{{language.entityValue}}</option>
+              </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="fluency " class="control-label col-sm-3">Fluency </label>
+          <div class="col-sm-8">
+            <select class="form-control" formControlName="selectedFluency">
+                <option value=''  disabled>Please Select Fluency</option>
+                <option *ngFor="let fluency of refDataForTechnicalInfo.fluency" [ngValue]="fluency">{{fluency.entityValue}}</option>
+              </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="name" class="control-label col-sm-3">Competency </label>
+          <div class="col-sm-8">
+              <select class="form-control" formControlName="selectedCompetency">
+                  <option value=''  disabled>Please Select Competency</option>
+                  <option *ngFor="let competency of refDataForTechnicalInfo.competency" [ngValue]="competency">{{competency.entityValue}}</option>
+                </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="submit" class="btn btn-success btn-raised">save</button>
+      <button type="button" class="btn btn-danger btn-raised" (click)="activeModal.dismiss()">Cancel</button>
+    </div>
+  </form>

@@ -1,0 +1,167 @@
+<div class="container">
+  <div class="row" matchHeight="card">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-md-11">
+              <h4 class="card-title">Work Experiance</h4>
+            </div>
+            <div class="col-md-1">
+              <button class="btn btn-md btn-outline-success" (click)="addWorkExperiance()">Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="table table-responsive-sm text-center">
+            <thead>
+              <tr>
+                <th>Company</th>
+                <th>Job Title</th>
+                <th>From</th>
+                <th>TO</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <tr *ngFor="let data of employeeWorkExperianceList">
+                <td>{{data.companyName}}</td>
+                <td>{{data.designationName}}</td>
+                <td>{{data.workStartOn | date :'MMMM dd, yyyy' }}</td>
+                <td>{{data.workEndOn | date :'MMMM dd, yyyy'}}</td>
+                <td>
+                  <i class="fa fa-trash cursor-pointer" aria-hidden="true" (click)="deleteWorkExperianceById(data.id)"></i>
+                  <i class="fa fa-pencil-square-o cursor-pointer" aria-hidden="true" (click)="editWorkExperiance(data)" style="margin-left: 20px;">
+                  </i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" matchHeight="card">
+    <div class="col-md-12">
+      <div class="card">
+
+        <div class="card-header">
+          <div class="row">
+            <div class="col-md-11">
+              <h4 class="card-title">Education</h4>
+            </div>
+            <div class="col-md-1">
+              <button class="btn btn-md btn-outline-success" (click)="addEducationDetail(education)">Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="table table-responsive-sm text-center">
+            <thead>
+              <tr>
+                <th>Degree</th>
+                <th>Year</th>
+                <th>GPA/Score</th>
+                <th>Action</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of employeeEducationList">
+                <td>{{data.degreeName}}</td>
+                <td>{{data.endOn | date :'yyyy'}}</td>
+                <td>{{data.score}}</td>
+                <td>
+                  <i class="fa fa-trash cursor-pointer" aria-hidden="true" (click)="deleteEducationRecordById(data.id)"></i>
+                  <i class="fa fa-pencil-square-o cursor-pointer" aria-hidden="true" (click)="editEducationDetail(data)" style="margin-left: 20px;">
+                  </i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" matchHeight="card">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-md-11">
+              <h4 class="card-title">Skills</h4>
+            </div>
+            <div class="col-md-1">
+              <button class="btn btn-md btn-outline-success" (click)="addSkillsDetail()">Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="table table-responsive-sm text-center">
+            <thead>
+              <tr>
+                <th>Skills</th>
+                <th>Years of Experience</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of employeeSkillList">
+                <td>{{data.skill}}</td>
+                <td>{{data.yearOfExperience}}</td>
+                <td>
+                  <i class="fa fa-trash cursor-pointer" aria-hidden="true" (click)="deleteSkillRecordById(data.id)"></i>
+                  <i class="fa fa-pencil-square-o cursor-pointer" aria-hidden="true" (click)="editSkillDetail(data)" style="margin-left: 20px;">
+                  </i>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" matchHeight="card">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-md-11">
+              <h4 class="card-title">Language</h4>
+            </div>
+            <div class="col-md-1">
+              <button class="btn btn-md btn-outline-success" (click)="addLanguageDetail()">Add</button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="table table-responsive-sm text-center">
+            <thead>
+              <tr>
+                <th>Language</th>
+                <th>Fluency</th>
+                <th>Competency</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of employeeLanguageList">
+                <td>{{data.languageName}}</td>
+                <td>{{data.fluencyName}}</td>
+                <td>{{data.competencyName}}</td>
+                <td>
+                  <i class="fa fa-trash cursor-pointer" aria-hidden="true" (click)="deleteLanguageRecordById(data.id)"></i>
+                  <i class="fa fa-pencil-square-o cursor-pointer" aria-hidden="true" (click)="editLanguageDetail(data)" style="margin-left: 20px;">
+                  </i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

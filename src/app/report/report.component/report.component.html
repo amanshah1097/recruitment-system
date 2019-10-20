@@ -1,0 +1,139 @@
+<div class="row text-left">
+  <div class="col-sm-12">
+    <div class="content-header">Report</div>
+  </div>
+</div>
+
+<div class="col-md-12 ">
+  <form [formGroup]="projectForm">
+    <div class="row">
+
+
+      <div class="col-md-2">
+        <label>project</label>
+        <select class='form-control' formControlName="projectId" (change)="getProjectReport()">
+          <!-- <option disabled> Select Project</option> -->
+          <option *ngFor="let project of projectOptions" [value]="project.projectId">{{project.projectName}}</option>
+        </select>
+      </div>
+
+      <div class="col-md-2">
+        <label>Module</label>
+        <select class='form-control' (change)="getProjectReport()" formControlName="moduleId">
+          <option *ngFor="let module of moduleOptions" [value]="module.moduleId">{{module.moduleName}}</option>
+        </select>
+      </div>
+
+      <div class="col-md-2">
+        <label>Chart</label>
+        <select class='form-control' formControlName="chartName">
+          <option disabled>{{ defaultSelected }}</option>
+          <option *ngFor="let chart of chartOptions" [value]="chart.chartName">{{chart.chartName}}</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <label>Year</label>
+        <select class='form-control' formControlName="year">
+          <option *ngFor="let year of yearList" [value]="year.initialYear">{{year.displayName}}</option>
+        </select>
+      </div>
+    </div>
+  </form>
+</div>
+
+<br />
+
+
+
+
+
+
+<div class="pms-report-card-first">
+  <div class="col-md-12">
+    <div class="outer">
+      <div class="inner-pms" ng-if="true">
+        <table id="ProjectSummary" class="project-summary-table" border="1">
+          <thead>
+            <tr class="project-summary-freeze-col-row">
+              <th class="text-center fixed-head-col fixed-left-0 height-static-head">Project</th>
+              <th class="text-center fixed-head-col fixed-left-100 height-static-head">
+                Week <i class="fa fa-arrow-right"></i>
+              </th>
+
+              <th class="project-summary-week-value-col" *ngFor="let weekNumber of weekNumberData" width="70">
+                <p class="text-center margin-size ">Week No. {{weekNumber}}</p>
+                <p class="text-center sub-header margin-size">{{convertToWeekDate(weekNumber)}}</p>
+              </th>
+            </tr>
+          </thead>
+
+
+          <tbody *ngFor=" let project of projectList">
+            <tr>
+              <th class="text-center fixed-head-col height-static" rowspan="3">{{project.projectName}}</th>
+              <th class="text-center fixed-head-col fixed-left-100">First Plan</th>
+              <td class="number-align no-concern-data" *ngFor=" let week of project.weekList">
+                {{week.firstPlanHours != null ? week.firstPlanHours : "-"}}</td>
+            </tr>
+            <tr>
+              <th class="text-center fixed-head-col fixed-left-100">Last Plan</th>
+              <td class="number-align no-concern-data" *ngFor=" let week of project.weekList">
+                {{week.lastPlanHours != null ? week.lastPlanHours : "-"}}</td>
+            </tr>
+            <tr>
+              <th class="text-center fixed-head-col fixed-left-100">Actual Plan</th>
+              <td class="number-align no-concern-data" *ngFor=" let week of project.weekList">
+                {{week.actualLogHours != null ? week.actualLogHours : "-"}}</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+
+      </div>
+      <!-- <div class="inner-pms" ng-if="false">
+                <table id="ProjectSummary" class="project-summary-table" border="1">
+                    <thead>
+                        <tr class="project-summary-freeze-col-row">
+                            <th class="text-center fixed-head-col fixed-left-0 height-static-head">Module</th>
+                            <th class="text-center fixed-head-col fixed-left-100 height-static-head">
+                                Week <i class="fa fa-arrow-right"></i>
+                            </th>
+                            <th id="moduleSummary-{{$index}}" class="project-summary-week-value-col" *ngFor="let weekNumber of weekNumberData" width="70">
+                                <p class="text-center margin">Week No. {{weekNumber}}</p>
+                                <p class="text-center sub-header margin">{{vm.convertToWeekDate(weekNumber)}}</p>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let module of projectGridData">
+                        <tr>
+                            <th class="text-center fixed-head-col height-static" rowspan="3">{{module.componentName}}</th>
+                            <th class="text-center fixed-head-col fixed-left-100">First Plan</th>
+                            <td class="number-align no-concern-data" *ngFor="let week of module.weekList">{{week.firstPlanHours != null ? week.firstPlanHours : "-"}}</td>
+                        </tr>
+                        <tr>
+                            <th class="text-center fixed-head-col fixed-left-100">Last Plan</th>
+                            <td class="number-align no-concern-data" *ngFor="let week of module.weekList">{{week.lastPlanHours != null ? week.lastPlanHours : "-"}}</td>
+                        </tr>
+                        <tr>
+                            <th class="text-center fixed-head-col fixed-left-100">Actual Plan</th>
+                            <td class="number-align no-concern-data" *ngFor="let week of module.weekList">{{week.actualLogHours != null ? week.actualLogHours : "-"}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> -->
+    </div>
+  </div>
+</div>
+
+<div [hidden]="!viewChart" style="height: 70vh; width: 70vw; margin: auto;">
+  <canvas id="myChart">{{ chart }}</canvas>
+</div>
+
+<div class="text-center">
+  <li [hidden]="viewChart">
+    <span>
+      <h3> No data found </h3>
+    </span>
+  </li>
+</div>

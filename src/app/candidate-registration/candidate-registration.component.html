@@ -1,0 +1,49 @@
+<div class="row" matchHeight="card">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-11">
+                        <h4 class="card-title">Candidate List</h4>
+                    </div>
+                    <div class="col-md-1">
+                        <button class="btn btn-md btn-outline-success" (click)="addCandidate(content)">Add</button>
+                        <button class="btn btn-md btn-outline-success" (click)="democall(content)">Demo</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-responsive-lg text-center">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Experience</th>
+                            <th>Skills</th>
+                            <th>Qualification</th>
+                            <th>Mobile Number</th>
+                            <th>Past Company Name</th>
+                            <th>Remarks</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let data of employeeWorkExperianceList">
+                            <td>{{data.companyName}}</td>
+                            <td>{{data.designationName}}</td>
+                            <td>{{data.workStartOn | date :'MMMM dd, yyyy' }}</td>
+                            <td>{{data.workEndOn | date :'MMMM dd, yyyy'}}</td>
+                            <td>
+                                <i class="fa fa-trash cursor-pointer" aria-hidden="true" (click)="deleteWorkExperianceById(data.id)"></i>
+                                <i class="fa fa-pencil-square-o cursor-pointer" aria-hidden="true" (click)="editWorkExperiance(data)" style="margin-left: 20px;">
+                                </i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

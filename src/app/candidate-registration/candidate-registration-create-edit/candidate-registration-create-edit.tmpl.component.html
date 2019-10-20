@@ -1,0 +1,141 @@
+<div>
+    <div class="modal-header">
+        <h4 class="modal-title">{{candidatetitle}}</h4>
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="parentform">
+            <!-- <div class="form-group col-md-4 col-lg-4">
+                <label for="name" class="control-label">First Name</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" aria-describedby="nameHelp" id="FirstName" formControlName="firstName" placeholder="Enter first name" />
+                </div>
+            </div>
+            <div class="form-group col-md-4 col-lg-4">
+                <label for="name" class="control-label">Last Name</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" aria-describedby="nameHelp" id="FirstName" formControlName="lastName" placeholder="Enter last name" />
+                </div>
+            </div>
+            <div class="form-group col-md-4 col-lg-4">
+                <label for="name" class="control-label">Experience</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" aria-describedby="nameHelp" id="Experience" formControlName="experience" placeholder="Enter experience" />
+                </div>
+            </div> -->
+            <div class="form-row">
+                <div class="form-group" class="col-lg-3">
+                    <label for="name" class="control-label">First Name</label>
+                    <input type="text" class="form-control" aria-describedby="nameHelp" id="InputName" formControlName="firstName" placeholder="Enter first name"
+                    />
+                </div>
+                <div class="form-group" class="col-lg-3">
+                    <label for="name" class="control-label">Last Name</label>
+                    <input type="text" class="form-control" aria-describedby="nameHelp" id="InputName" formControlName="lastName" placeholder="Enter last name"
+                    />
+                </div>
+                <div class="form-group col-lg-4">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" formControlName="email" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <div class="form-group col-lg-2">
+                    <label for="experience" class="control-label">Experience</label>
+                    <input type="text" class="form-control" aria-describedby="experienceHelp" id="InputExperience" formControlName="experience"
+                        placeholder="Enter experience" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-lg-6">
+                    <label>Qualifications</label>
+                    <div>
+                        <label style="margin-left: 10px">
+                            <input type="radio" value="BE-IT/Computers" formControlName="qualifications" /> BE-IT/Computers
+                        </label>
+                    </div>
+                    <div>
+                        <label style="margin-left: 10px">
+                            <input type="radio" value="BE-ECE/ICE" formControlName="qualifications" /> BE-ECE/ICE
+                        </label>
+                    </div>
+                    <div>
+                        <label style="margin-left: 10px">
+                            <input type="radio" value="BE-Others" formControlName="qualifications" /> BE-Others
+                        </label>
+                    </div>
+                    <div>
+                        <label style="margin-left: 10px">
+                            <input type="radio" value="MCA/MSC-IT" formControlName="qualifications" /> MCA/MSC-IT
+                        </label>
+                    </div>
+                    <div>
+                        <label style="margin-left: 10px">
+                            <input type="radio" value="ME/MTec" formControlName="qualifications" /> ME/MTec
+                        </label>
+                    </div>
+                    <div>
+                        <label style="margin-left: 10px">
+                            <input type="radio" value="Others" formControlName="qualifications" /> Others
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group col-lg-6">
+                    <label>Skills</label>
+                    <ng-multiselect-dropdown [placeholder]="'Select Technology'" [data]="dropdownList" formControlName="skill" [settings]="dropdownSettings">
+                    </ng-multiselect-dropdown>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-lg-6">
+                    <label for="graduation" class="control-label">Graduation (%)</label>
+                    <input type="text" class="form-control" formControlName="graduation" aria-describedby="GraduationHelp" id="InputGraduation"
+                        placeholder="Enter percentage" />
+                </div>
+                <div class="form-group col-lg-6">
+                    <label for="mobilenumber" class="control-label">Mobile Number</label>
+                    <input type="text" class="form-control" formControlName="mobilenumber" aria-describedby="MobileHelp" id="InputMobile" placeholder="Enter mobile number"
+                    />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-lg-12">
+                    <label for="pastcompanyname" class="control-label">Past Company Name</label>
+                    <input type="text" class="form-control" formControlName="pastcompanyname" aria-describedby="PastCompanyName" id="InputCompanyName"
+                        placeholder="Enter Company Name" />
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-lg-12">
+                    <label for="remark" class="control-label">Remarks</label>
+                    <div>
+                        <textarea class="form-control" placeholder="Enter Remarks..." name="remarks" id="TextArea" formControlName="remark" rows="3"></textarea>
+                    </div>
+                </div>
+                <!-- <div>
+                    <div class="container col-lg-6">
+                        <button type="button" class="btn btn-primary btn-lg" aria-label="Close" (click)="staticModal.hide()">CANCEL</button>
+                    </div>
+                    <div class="col-lg-6">
+                        <button type="button" class="btn btn-primary btn-lg btn-block" (click)="onSave($event)">SAVE</button>
+                    </div>
+                </div> -->
+            </div>
+            <!-- <div class="card text-left">
+          <div class="card-header">
+          </div>
+          <div class="card-block">
+            <div class="row">
+              <div class="col-md-12 col-lg-12">
+                <app-editor [formGroup]="parentform"></app-editor>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success btn-raised" (click)="onPost()">Post</button>
+        <button type="button" class="btn btn-danger btn-raised" (click)="activeModal.dismiss()">Cancel</button>
+    </div>
+</div>

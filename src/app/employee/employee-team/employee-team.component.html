@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="row" matchHeight="card">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Line Manager</h4>
+          </div>
+          <div class="card-body">
+            <table class="table table-responsive-sm text-center">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Reporting Method</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let data of employeeLineManagerList">
+                      <td>{{data}}</td>
+                      <td>Direct</td>
+                    </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="row" matchHeight="card">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <h4 class="card-title">Subordinates</h4>
+            </div>
+            <div class="card-body">
+              <table class="table table-responsive-sm text-center">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Reporting Method</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of employeeSubordinatesList">
+                        <td>{{data}}</td>
+                        <td>Direct</td>
+                      </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>

@@ -1,0 +1,43 @@
+<form [formGroup]="skillForm"class="form-horizontal" role="form" (ngSubmit)="addSkillDetail()" novalidate> 
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add Skills</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="model-body">
+    <div class="container">
+        <label for="skill" class="control-label col-sm-3">Skill</label>
+        <div class="col-sm-8">
+          <!-- <select id="skill" name="selectedSkill" [(ngModel)]="selectedSkill" [ngModelOptions]="{standalone: true}" class="form-control">
+            <option value="" disabled>--Please select Degree--</option>
+            <option *ngFor="let selectedSkill of refDataForTechnicalInfo.skills" [ngValue]="selectedSkill" ngDefaultControl>
+              {{selectedSkill.entityValue}}
+            </option>
+          </select> -->
+          <select class="form-control" formControlName="skill">
+            <option *ngFor="let skill of refDataForTechnicalInfo.skills" [ngValue]="skill">{{skill.entityValue}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="name" class="control-label col-sm-5">Years of Experiance</label>
+          <div class="col-sm-6">
+              <input class="form-control"  formControlName="yearsOfExperiance">
+            <!-- <input type="name" [(ngModel)]="skillsDetail.yearOfExperience" [ngModelOptions]="{standalone: true}" class="form-control"
+              id="name" placeholder="year of Experience"> -->
+          </div>
+        </div>
+        <!-- <div class="form-group">
+            <label for="name" class="control-label col-sm-3">comment</label>
+            <div class="col-sm-8">
+              <textarea name="comment" placeholder="Message" id="comment"></textarea>
+            </div>
+          </div> -->
+     
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="submit"  class="btn btn-success btn-raised">save</button>
+    <button type="button" class="btn btn-danger btn-raised" (click)="activeModal.dismiss()">Cancel</button>
+  </div>
+</form>

@@ -1,0 +1,78 @@
+<div class="content-header">
+  <div class="text-left"> Daily Status Report</div>
+  <br />
+</div>
+<div class="row">
+  <div class="col-md-3">
+    <label class="label filter-label">Year</label>
+    <form [formGroup]="taxYearForm">
+      <div class="form-group">
+        <select class='form-control' formControlName="selectedYear" (change)="onYearChange()">
+          <option *ngFor="let year of dsrTaxYearList" [ngValue]="year.id">{{year.displayValue}}</option>
+        </select>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-5" style="text-align: center">
+    <div class="filter-header filter-btn-group">
+      <div class="btn-group fiter-group" role="group">
+        <button class="btn filter-btn btn-lg" [ngClass]="{'filter-btn-active': isWeekFilter}" (click)="filterOption('week')">Week</button>
+        <button class="btn filter-btn btn-lg" [ngClass]="{'filter-btn-active': isMonthFilter}" (click)="filterOption('month')">Month</button>
+      </div>
+
+      <div class="row text-center" style="padding-top: 2vh">
+        <div class="col-md-3 text-right">
+          <a (click)="filterTimeMinus()" (mousedown)="-1">
+            <i class="fa fa-caret-left fa-2x main-color filter-icon"></i>
+          </a>
+        </div>
+
+        <div class="text-center col-md-6">
+          <p class="main-color">
+            <span *ngIf="isWeekFilter">{{currentTaxWeek}}</span>
+            <span *ngIf="isMonthFilter">{{currentMonth}}</span>
+            <span *ngIf="isWeekFilter">
+              <br/> {{dsrTaxWeekValue == "" ? "" : " (" + dsrTaxWeekValue + ") "}} </span>
+          </p>
+        </div>
+
+        <div class="col-md-3 text-left">
+          <a (click)="filterTimePlus()">
+            <i class="fa fa-caret-right fa-2x main-color filter-icon"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4 text-right">
+    <button type="button" class="btn btn-outline-primary btn-lg" (click)="addDsr(content)">
+      <i class="ft-plus-circle"></i> Add DSR</button>
+  </div>
+</div>
+<div class="card text-left" style="border-left: 4px solid #009da0" *ngFor="let item of dsrListData">
+  <div class="card-block col-md-12" style="background-color: #ffffff">
+    <div class="row">
+      <div class="col-md-10">
+        <div [innerHTML]="item.dsrDetails">
+        </div>
+      </div>
+      <div class="pull-right col-md-2">
+        <!-- <div class="col-md-12"> -->
+          <button type="button" class="btn btn-outline-success col-md-5" (click)="editDsr(content, item.id)" style="margin-right: 5px;">
+            <span class="ft-edit"></span>
+          </button>
+          <button type="button" class="btn btn-outline-danger col-md-5" (click)="deleteComment(item.id)" style="margin-left: 5px;">
+            <span class="ft-trash"></span>
+          </button>
+          <span class="col-md-2">
+            {{item.dsrDate | date :'MMMM dd, yyyy' }}
+          </span>
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="editor">
+
+</div>
